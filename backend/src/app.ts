@@ -1,4 +1,5 @@
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import helmet from 'helmet';
 import { setupApiRoutes } from './v1/routes/api-routes';
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(helmet());
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
 app.get('/', (_req, res) => {
